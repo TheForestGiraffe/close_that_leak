@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function_contained_and_ownership_transfer.c        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/19 14:22:09 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/02/19 14:29:13 by pecavalc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,11 +19,12 @@
 
 static size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 static char		*ft_strdup(const char *src);
+static size_t	ft_strlen(const char *str);
 
-int print_heap_allocated_messages(void)
+int	print_heap_allocated_messages(void)
 {
-	char *msg_1;
-	char *msg_2;
+	char	*msg_1;
+	char	*msg_2;
 
 	msg_1 = malloc(sizeof(char) * 27); 	// msg_1 lifetime begins
 	if (!msg_1)
@@ -26,15 +39,15 @@ int print_heap_allocated_messages(void)
 		return (1);
 	}
 
-    printf("%s\n%s\n", msg_1, msg_2);
+	printf("%s\n%s\n", msg_1, msg_2);
 
-    free(msg_1);                    // lifetime ends
+	free(msg_1);                    // lifetime ends
 	free(msg_2);					// lifetime ends
 	return (0);
 }
 
 // borrows str, does not free
-static size_t	ft_strlen(const char *str) 	
+static size_t	ft_strlen(const char *str)
 {
 	size_t	count;
 
@@ -45,7 +58,7 @@ static size_t	ft_strlen(const char *str)
 }
 
 // borrows s1 (read-only); allocates new string; returns owned pointer
-static char	*ft_strdup(const char *src) 		
+static char	*ft_strdup(const char *src)
 {
 	size_t	size;
 	char	*src_dup;
@@ -59,7 +72,7 @@ static char	*ft_strdup(const char *src)
 }
 
 // reads src (borrowed); writes dst; no alloc/free
-static size_t	ft_strlcpy(char *dst, const char *src, const size_t size) 
+static size_t	ft_strlcpy(char *dst, const char *src, const size_t size)
 {
 	size_t	i;
 
