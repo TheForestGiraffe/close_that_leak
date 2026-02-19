@@ -1,28 +1,31 @@
 #include "cmd.h"
 #include <stdlib.h>
 
-/* Implemented in exec.c */
-int exec_print_borrow(const t_cmd *cmd);
+int exec_print(const t_cmd *cmd);
 
 int main(void)
 {
-    t_cmd   *cmd;
+    t_cmd   cmd; // fix - heap or stack?
     int     status;
 
-    cmd = cmd_create_demo();
-    if (!cmd)
+	cmd_init(&cmd);
+	cmd = cmd_create();
+	if (!cmd)
         return (EXIT_FAILURE);
 
-    status = exec_print_borrow(cmd);
+    status = exec_print(cmd);
+	//...
 
     cmd_destroy(cmd);
 
-    /*
-     * Ownership transfer example:
-     *
-     * status = exec_print_consume(cmd);
-     * cmd = NULL;
-     */
+	return (status);
+}
 
-    return (status ? EXIT_FAILURE : EXIT_SUCCESS);
+// Borrows cmd: does not destroy it
+int exec_print(const t_cmd *cmd)
+{
+    if (!cmd || !cmd->path || !cmd->argv || !cmd->argv[0])
+        return (1);
+    printf("exec: %s %s\n", cmd->path, cmd->argv[0]);
+    return (0);
 }

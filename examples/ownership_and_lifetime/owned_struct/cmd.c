@@ -1,7 +1,7 @@
 #include "cmd.h"
 #include <stdlib.h>
 
-/* -------- local helpers -------- */
+// Local helpers
 
 static size_t ft_strlen(const char *s)
 {
@@ -40,7 +40,7 @@ static char *ft_strdup(const char *src)
     return (dup);
 }
 
-/* -------- lifecycle -------- */
+// Lifecycle management
 
 void    cmd_init(t_cmd *cmd)
 {
@@ -67,9 +67,7 @@ void    cmd_destroy(t_cmd *cmd)
     free(cmd);
 }
 
-/* -------- constructor -------- */
-
-t_cmd   *cmd_create_demo(void)
+t_cmd   *cmd_create(void)
 {
     t_cmd *cmd;
 
