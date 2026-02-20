@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 14:22:09 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/02/19 14:29:13 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/02/20 10:58:23 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@
 static size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 static char		*ft_strdup(const char *src);
 static size_t	ft_strlen(const char *str);
+int				print_messages(void);
 
-int	print_heap_allocated_messages(void)
+int	main(void)
+{
+	print_messages();
+	return (0);
+}
+
+int	print_messages(void)
 {
 	char	*msg_1;
 	char	*msg_2;
@@ -86,10 +93,4 @@ static size_t	ft_strlcpy(char *dst, const char *src, const size_t size)
 	}
 	dst[i] = '\0';
 	return (ft_strlen(src));
-}
-
-int	main(void)
-{
-	print_heap_allocated_messages();
-	return (0);
 }
