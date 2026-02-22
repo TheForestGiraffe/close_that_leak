@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:26:04 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/02/21 18:14:14 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/02/22 09:51:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define APP_H
 
 // Program-lifetime (stack struct, with owned heap field)
-// label is freed by app_destroy
+// label and version are freed by app_destroy
 
 typedef struct s_app
 {
