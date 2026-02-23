@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+static void disturb_heap(void)
+{
+    char *p = malloc(100);
+    memset(p, 'X', 100);
+    free(p);
+}
+
+int main(void)
+{
+    char *msg = malloc(32);
+    strcpy(msg, "Memory workshop!");
+
+    char *saved = msg;   // we "keep it for later"
+
+    free(msg);           // original owner frees it
+
+    disturb_heap();      // comment this line → bug becomes harder to see
+
+    printf("%s\n", saved);   // 💥 use-after-free
+
+    return 0;
+}
