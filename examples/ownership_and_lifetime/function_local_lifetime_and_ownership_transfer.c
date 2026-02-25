@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 14:22:09 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/02/20 10:58:23 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:08:55 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int	print_messages(void)
 	char	*msg_1;
 	char	*msg_2;
 
-	msg_1 = malloc(sizeof(char) * 27); 	// msg_1 lifetime begins
+	msg_1 = malloc(sizeof(char) * 27); 	// lifetime begins
 	if (!msg_1)
 		return (1);
 
-	ft_strlcpy(msg_1, "msg_1: function contained.", 27);
+	ft_strlcpy(msg_1, "msg_1", 27);
 
-	msg_2 = ft_strdup("msg_2: ownership transferred.");
+	msg_2 = ft_strdup("msg_2");
 	if (!msg_2)
 	{
 		free(msg_1);
