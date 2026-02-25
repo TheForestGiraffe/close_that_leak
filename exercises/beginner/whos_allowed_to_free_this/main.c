@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct s_app {
-    char *buffer;     // owned by app
+    char *buffer; 
 } t_app;
 
 static void destroy_app(t_app *app, int code)
@@ -17,7 +17,6 @@ static char *read_line(void)
     return NULL;
 }
 
-/* PROBLEM: helper does cleanup + exit, and also frees something it didn't clearly own */
 static char *line_or_die(char *line, t_app *app)
 {
     if (!line)

@@ -2,7 +2,9 @@
 
 **a helper frees or exits even though it doesn’t clearly own the resources**.
 
-Your job: spot the problem and explain why it can be a problem.
+Your job: spot the issue and explain why it can be a problem.
+How can it be avoided?
+
 
 ---
 
@@ -22,10 +24,3 @@ Your job: spot the problem and explain why it can be a problem.
    - Think about: testing, reuse, and control flow.
 
 ---
-
-## “Better” direction (hint)
-
-A more common style is:
-
-- Helpers return an error (`NULL` / `-1`)
-- The **owner** decides how to clean up and whether to exit
