@@ -1,4 +1,4 @@
-# Exercise 2 — “The Destructor That Knows Nothing”
+# Memory Workshop Exercise — “The Destructor That Knows Nothing”
 
 ### Task:  
 Make the destructor always safe without adding extra state variables.
